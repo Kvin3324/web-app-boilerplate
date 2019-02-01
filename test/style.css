@@ -1,0 +1,22 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    background-color: antiquewhite;
+    height: 20vh;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 3px;
+    font-size: 4em;
+}
+
+.rules {
+    width: 7%;
+    position: absolute;
+    left: 2%;
+    top: 10%;
+}
