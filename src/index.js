@@ -2,15 +2,18 @@
  * Import
  */
 import "./assets/scss/main.scss";
-import { elements } from './view/base';
+import { elements, displayData, getData } from './view/base';
+// import Word from './model/Word';
 import { addLevel } from "./view/levelView";
+// import { pickWord } from "./view/wordView";
 
-
-// const states = {};
+/**
+ * Word object
+ */
 
 // Started timer
 
-elements.displayWord.addEventListener('click', () => {
+elements.startGame.addEventListener('click', () => {
     const begin = setInterval(function () { myTimer() }, 1000);
     let secondlimit = 5;
 
@@ -38,6 +41,11 @@ elements.displayWord.addEventListener('click', () => {
     // LEVEL VIEW
         addLevel();
 
+
+    // API CALL  
+    // getData();
+    displayData();
+        
 });
 
 
