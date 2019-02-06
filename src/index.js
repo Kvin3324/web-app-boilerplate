@@ -2,7 +2,7 @@
  * Import
  */
 import "./assets/scss/main.scss";
-import { elements, displayData, renderWord } from './view/base';
+import { elements, displayData } from './view/base';
 import { addLevel } from "./view/levelView";
 // import Word from './model/Word';
 // import { pickWord } from "./view/wordView";
@@ -42,7 +42,21 @@ elements.startGame.addEventListener('click', () => {
 
     // Display word
     displayData();
+
+
+    // Add new words + level
+
+    
+
+
 });
 
+elements.answerUser.addEventListener('click', () => {
+    displayData();
+})
 
-
+document.addEventListener('keypress', function (event) {
+    if (event.keyCode === 13) {
+        displayData();
+    }    
+});
