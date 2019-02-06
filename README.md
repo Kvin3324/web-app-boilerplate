@@ -1,6 +1,6 @@
 # But du jeu
 
-Un mot et un décompte s'affichent. Le joueur doit, dans un champ dédié, taper les lettres de ce mot avant la fin du décompte pour pouvoir passer au prochain mot, et ensuite au prochain niveau.
+Un mot et un décompte s'affichent. Le joueur doit, dans un champ dédié, taper ce mot avant la fin du décompte pour pouvoir passer au prochain, et ensuite au prochain niveau.
 Une section affiche les meilleurs scores.
 # Les différents niveaux du jeu
 

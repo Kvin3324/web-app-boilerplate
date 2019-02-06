@@ -2,31 +2,29 @@
  * Import
  */
 import "./assets/scss/main.scss";
-import { elements, displayData, getData } from './view/base';
-// import Word from './model/Word';
+import { elements, displayData, renderWord } from './view/base';
 import { addLevel } from "./view/levelView";
+// import Word from './model/Word';
 // import { pickWord } from "./view/wordView";
 
-/**
- * Word object
- */
 
 // Started timer
 
 elements.startGame.addEventListener('click', () => {
+    // Begin timer
     const begin = setInterval(function () { myTimer() }, 1000);
     let secondlimit = 5;
-
     function myTimer() {
         if (secondlimit == 0) {
             myStopFunction();
         }
 
+        // Display timer
         document.getElementById("timer").innerHTML = '00:' + zeroPad(secondlimit, 2);
         secondlimit = secondlimit - 1;
 
     }
-
+    // Stop timer
     function myStopFunction() {
         clearInterval(begin);
         // alert('You are to slow... Try again !')
@@ -38,14 +36,12 @@ elements.startGame.addEventListener('click', () => {
     }
     
     
-    // LEVEL VIEW
-        addLevel();
+    // display level
 
+    addLevel();
 
-    // API CALL  
-    // getData();
+    // Display word
     displayData();
-        
 });
 
 

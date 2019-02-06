@@ -1,6 +1,6 @@
 export const elements = {
     startGame: document.querySelector('.start--btn'),
-    displayLevel: document.querySelector('.word')
+    wordSection: document.querySelector('.word')
     // displayWord: document.querySelector('.word--display')
 }
 
@@ -23,8 +23,10 @@ export const displayData = async () => {
     const dataArray = await getData('https://api.datamuse.com/words?ml=ringing+in+the+ears');
 
     dataArray.forEach(element => arrayWords.push(element.word));
-    // console.log(dataArray);
-
-    console.log(arrayWords);
+    
+       // Take random word
+       const randomWord = dataArray[Math.floor(Math.random() * dataArray.length)];
+       // Display word
+       elements.wordSection.insertAdjacentHTML('afterend', '- ' + randomWord.word);
 }
-// displayData();
+

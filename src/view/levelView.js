@@ -3,17 +3,7 @@ import { elements } from './base';
 export const addLevel = (level) => `
     <div class="word--level">Level n° ${level}</div>
 `;
-elements.displayLevel.insertAdjacentHTML('afterbegin', addLevel(1));
-
-// export const renderLevel = () => {
-//     let level = 0;
-//     if (level > 0) {
-//         addLevel(1);
-//     } else {
-//         addLevel(0);
-//     }
-//     elements.displayLevel.insertAdjacentHTML('afterbegin', addLevel(0));
-// };
+elements.wordSection.insertAdjacentHTML('beforeend', addLevel(1));
 
     // const levels = [];
     // if (elements.level > 0) {
