@@ -2,61 +2,38 @@
  * Import
  */
 import "./assets/scss/main.scss";
-import { elements, displayData } from './view/base';
+import { elements, displayData, userAnswer } from './view/base';
 import { addLevel } from "./view/levelView";
 // import Word from './model/Word';
-// import { pickWord } from "./view/wordView";
+import { timer } from "./timer";
 
-
-// Started timer
+// STARTED GAME
 
 elements.startGame.addEventListener('click', () => {
-    // Begin timer
-    const begin = setInterval(function () { myTimer() }, 1000);
-    let secondlimit = 5;
-    function myTimer() {
-        if (secondlimit == 0) {
-            myStopFunction();
-        }
+    // STARTED TIMER
+    timer();
 
-        // Display timer
-        document.getElementById("timer").innerHTML = '00:' + zeroPad(secondlimit, 2);
-        secondlimit = secondlimit - 1;
-
-    }
-    // Stop timer
-    function myStopFunction() {
-        clearInterval(begin);
-        // alert('You are to slow... Try again !')
-    }
-
-    function zeroPad(num, places) {
-        const zero = places - num.toString().length + 1;
-        return Array(+(zero > 0 && zero)).join("0") + num;
-    }
-    
-    
     // display level
+    // addLevel();
 
-    addLevel();
-
-    // Display word
+    // DISPLAY DATA = RANDOM WORD
     displayData();
+    // NEXT LEVEL WITH USER's ANSWER
+    userAnswer();
 
-
-    // Add new words + level
-
-    
-
-
+    // const state = new Word("word");
+    // state.nextLevel();
 });
 
 elements.answerUser.addEventListener('click', () => {
     displayData();
+    userAnswer();
 })
 
 document.addEventListener('keypress', function (event) {
     if (event.keyCode === 13) {
         displayData();
+        userAnswer();
     }    
 });
+

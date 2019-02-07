@@ -2,17 +2,21 @@
 // import { addLevel } from "./view/levelView";
 // import { displayData } from './view/base';
 
+export default class Word {
+    constructor(word) {
+        this.word = word;
+        this.dataTab = [];
+    }
+    getWord() {
+        return this.word;
+    }
+    getDataTab() {
+        return this.dataTab;
+    }
+    setDataTab(data) {
+        this.dataTab.push(data);
+    }
+    // nextLevel() {
 
-// export default class Word {
-//     constructor() {
-//         this.word = word;
-//     }
-
-//     nextLevel() {
-//         const answerUser = document.querySelector('.input--answer');
-
-//         if (answerUser.value === this.word) {
-//             addLevel() + 1 && displayData(randomItem.this.word + 5);
-//         }
-//     }
-// }
+    // }
+}

@@ -1,3 +1,6 @@
+import Word from "../model/Word";
+import renderWord from "./wordView";
+const stateWord = new Word("test");
 export const elements = {
     startGame: document.querySelector('.start--btn'),
     wordSection: document.querySelector('.word'),
@@ -6,8 +9,6 @@ export const elements = {
 }
 
  // API CALL  
-
-const arrayWords = [];
 
 export const getData = async bdd => { // TODO: Get data from BDD
     try {
@@ -20,32 +21,17 @@ export const getData = async bdd => { // TODO: Get data from BDD
     }
 
 }
+
 export const displayData = async () => {
     const dataArray = await getData('https://api.datamuse.com/words?ml=ringing+in+the+ears');
+    dataArray.forEach(element => stateWord.setDataTab(element.word));
+    randomWords();
 
-    dataArray.forEach(element => arrayWords.push(element.word));
+    // PCIK USER's ANSWER
 
-       // Take random word
-       let randomWord = dataArray[Math.floor(Math.random() * dataArray.length)];
-       // Display word
-       elements.wordSection.insertAdjacentHTML('afterend', '- ' + randomWord.word);
-       
-        // Pick user's answer
-    // const answers = [];
-        const answerUser = document.getElementsByClassName('input--answer');
-            
-            for (let i = 0; i < answerUser.length; i++) {
-                // answers.push(answerUser);
-                console.log(answerUser[i].value);
-                }
+    // Compare user's answer with randow word display
+    // userAnswer();
 
-        // const answers = [];
-        // answers.forEach(e => {
-        // answers.push(answerUser);
-        //     console.log(answerUser.value);
-        // })
-
-       // Compare user's answer with randow word display
             
          
         //    if (answerUser.value === randomWord.word) {
@@ -65,9 +51,34 @@ export const displayData = async () => {
 
        // Display level + news words
 
+}
+    
+    
+// DISPLAY RANDOM WORDS 
+
+function randomWords() {
+    // Take random word
+    let randWord = Math.round(Math.random() * stateWord.dataTab.length);
+    // Display word
+    renderWord(stateWord.dataTab[randWord]);
+}
+
+// NEXT LEVEL WITH USER'S ANSWER
+
+export function userAnswer() {
+    const answerUser = document.getElementsByClassName('input--answer');
+    let randWord = Math.round(Math.random() * stateWord.dataTab.length);
+
+    for (let i = 0; i < answerUser.length; i++) {
+        // answers.push(answerUser);
+        console.log(answerUser[i].value);
     }
-    
-    
-    
-    // Next level
+    if (answerUser[i].value === stateWord.dataTab[randWord]) {
+        console.log(stateWord.dataTab[randWord]);
+    } else {
+        alert('Wrong word asshole!');
+    }
+}
+
+
     
