@@ -1,10 +1,12 @@
-import Word from "../model/Word";
+import {stateWord}  from "../model/Word";
 import renderWord from "./wordView";
-const stateWord = new Word("test");
+// const stateWord = new Word("test");
+
 export const elements = {
     startGame: document.querySelector('.start--btn'),
     wordSection: document.querySelector('.word'),
-    answerUser: document.querySelector('.answer--user')
+    answerUser: document.querySelector('.answer--user'),
+    answerSection: document.querySelector('.answer')
     // displayWord: document.querySelector('.word--display')
 }
 
@@ -32,19 +34,6 @@ export const displayData = async () => {
     // Compare user's answer with randow word display
     // userAnswer();
 
-            
-         
-        //    if (answerUser.value === randomWord.word) {
-        //     randomWord.slice(Math(ramdomWord.length + 5, 1));
-        //        elements.wordSection.insertAdjacentHTML('afterend', '- ' + randomWord.word);
-
-            // console.log(randomWord);
-                
-            // displayData(randomWord.word * 5);
-            //    console.log(answerUser.value);
-
-        //    }
-
        // If ok: level + 1 and add 5 words
 
        // If not ok: alert 'you are a looser' and  go back to level 1 
@@ -58,27 +47,32 @@ export const displayData = async () => {
 
 function randomWords() {
     // Take random word
-    let randWord = Math.round(Math.random() * stateWord.dataTab.length);
+    // let randWord = Math.round(Math.random() * stateWord.dataTab.length);
+    stateWord.setRandom();
+    console.log(stateWord);
+    
     // Display word
-    renderWord(stateWord.dataTab[randWord]);
+    renderWord(stateWord.dataTab[stateWord.randWord]); // TODO: render view's word
+    // userAnswer(stateWord.dataTab[stateWord.randWord]);
 }
 
 // NEXT LEVEL WITH USER'S ANSWER
 
-export function userAnswer() {
-    const answerUser = document.getElementsByClassName('input--answer');
-    let randWord = Math.round(Math.random() * stateWord.dataTab.length);
+export function userAnswer(pickWord) {
+    const answerUser = document.querySelector('.input--answer');
+    // let randWord = Math.round(Math.random() * stateWord.dataTab.length);
 
-    for (let i = 0; i < answerUser.length; i++) {
-        // answers.push(answerUser);
-        console.log(answerUser[i].value);
+    console.log(answerUser.value);
+
+        if (answerUser.value === pickWord) {
+            console.log(pickWord);
+        } else {
+            alert('Wrong word asshole!');
+        }
+
+
     }
-    if (answerUser[i].value === stateWord.dataTab[randWord]) {
-        console.log(stateWord.dataTab[randWord]);
-    } else {
-        alert('Wrong word asshole!');
-    }
-}
+
 
 
     

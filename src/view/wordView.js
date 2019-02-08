@@ -6,4 +6,5 @@ const renderWord = word => {
     div.innerHTML = `<p>${word}</p>`;
     elements.wordSection.appendChild(div);
 }
+
 export default renderWord;

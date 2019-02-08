@@ -19,7 +19,7 @@ elements.startGame.addEventListener('click', () => {
     // DISPLAY DATA = RANDOM WORD
     displayData();
     // NEXT LEVEL WITH USER's ANSWER
-    userAnswer();
+    // userAnswer();
 
     // const state = new Word("word");
     // state.nextLevel();
@@ -27,13 +27,12 @@ elements.startGame.addEventListener('click', () => {
 
 elements.answerUser.addEventListener('click', () => {
     displayData();
-    userAnswer();
+    
 })
 
 document.addEventListener('keypress', function (event) {
     if (event.keyCode === 13) {
         displayData();
-        userAnswer();
     }    
 });
 

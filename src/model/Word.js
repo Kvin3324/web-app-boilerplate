@@ -2,7 +2,7 @@
 // import { addLevel } from "./view/levelView";
 // import { displayData } from './view/base';
 
-export default class Word {
+  class Word {
     constructor(word) {
         this.word = word;
         this.dataTab = [];
@@ -16,7 +16,12 @@ export default class Word {
     setDataTab(data) {
         this.dataTab.push(data);
     }
-    // nextLevel() {
-
-    // }
+    
+    setRandom() {
+        this.randWord = Math.round(Math.random() * this.dataTab.length);
+    }
+    
+    
 }
+
+export const stateWord = new Word("test");
