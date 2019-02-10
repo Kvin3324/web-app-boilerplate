@@ -6,6 +6,12 @@ import { elements, displayData, userAnswer } from './view/base';
 import { addLevel } from "./view/levelView";
 // import Word from './model/Word';
 import { timer } from "./timer";
+import { stateWord } from "./model/Word";
+import { displayRules } from "./rules";
+
+
+// BUTTON WITH RULES
+displayRules();
 
 // STARTED GAME
 
@@ -21,18 +27,18 @@ elements.startGame.addEventListener('click', () => {
     // NEXT LEVEL WITH USER's ANSWER
     // userAnswer();
 
-    // const state = new Word("word");
-    // state.nextLevel();
 });
 
 elements.answerUser.addEventListener('click', () => {
     displayData();
-    
+    userAnswer(stateWord.dataTab[stateWord.randWord]);
+
 })
 
 document.addEventListener('keypress', function (event) {
     if (event.keyCode === 13) {
         displayData();
+        userAnswer(stateWord.dataTab[stateWord.randWord]);
     }    
 });
 

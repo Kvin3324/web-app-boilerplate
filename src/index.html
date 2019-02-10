@@ -17,9 +17,25 @@
         <h1>Word Game</h1>
     </div>
     <div class="rules">
-        <p>
-           <strong>Rules:</strong> The goal is to write all words after the end of the time.
-        </p>
+        <button id="myBtn" class="btn btn-danger">Rules</button>
+        
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+        
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Les règles sont les suivantes:</p>
+                <p>Lorsque vous cliquez sur "lets'go" un compteur avec un mot s'affiche en haut de l'écran vous devez écrire dans le
+                    champ en bas de votre écran le mot dans le temps imparti, chaque fois que vous validez un mot votre niveau augmente
+                    de 1.</p>
+                <p>Lorsque vous commencez le jeu vous êtes au niveau 1, à ce niveau il faut valider 5 mots pour pouvoir passer au niveau
+                    suivant avec une vitesse de 2s / mot. Chaque fois que vous passez un niveau le nombre de mots à valider ainsi que la
+                    vitesse de frappe augmente.</p>
+                <p>À noter que pour valider votre mot il faut appuyer sur la touche "Entrée".</p>
+            </div>
+        
+        </div>
     </div>
     <div class="container">
         <div class="start--btn">
