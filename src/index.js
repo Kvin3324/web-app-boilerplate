@@ -19,11 +19,9 @@ elements.startGame.addEventListener('click', () => {
     // STARTED TIMER
     timer();
 
-    // display level
-    // addLevel();
-
     // DISPLAY DATA = RANDOM WORD
     displayData();
+
     // NEXT LEVEL WITH USER's ANSWER
     // userAnswer();
 
