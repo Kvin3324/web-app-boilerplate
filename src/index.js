@@ -16,15 +16,8 @@ displayRules();
 // STARTED GAME
 
 elements.startGame.addEventListener('click', () => {
-    // STARTED TIMER
-    timer();
-
-    // DISPLAY DATA = RANDOM WORD
-    displayData();
-
-    // NEXT LEVEL WITH USER's ANSWER
-    // userAnswer();
-
+    timer(); // TODO: Started timer
+    displayData(); // TODO: Fetch random word and Display
 });
 
 elements.answerUser.addEventListener('click', () => {

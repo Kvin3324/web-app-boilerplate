@@ -10,8 +10,9 @@ export const elements = {
     wordSection: document.querySelector('.word'),
     answerUser: document.querySelector('.answer--user'),
     answerSection: document.querySelector('.answer'),
-    // displayWord: document.querySelector('.word--display')
+    inputUser: document.querySelector('.input--answer')
 }
+
 
  // API CALL  
 
@@ -60,17 +61,18 @@ export function userAnswer(pickWord) {
     const answerUser = document.querySelector('.input--answer');
     
     if (answerUser.value === pickWord) { // TODO: Compare user's answer with randow word display
-            clearArray();
-        while (elements.wordSection.firstChild) {
+            clearArray(); 
+        while (elements.wordSection.firstChild) { // TODO: Remove last word
             elements.wordSection.removeChild(elements.wordSection.firstChild);
         }
-            console.log(pickWord);
-
+        elements.inputUser.value = ''; // TODO: Clear user's input answer and focus him
+            // console.log(pickWord);
         } else {
             alert('Wrong word asshole!');
         }
     }
 
+    // TODO: Clear array
     function clearArray() {
         for (let i = stateWord.dataTab.length; i >0; i--) {
             stateWord.dataTab.pop();
