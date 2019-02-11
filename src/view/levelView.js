@@ -1,12 +1,5 @@
 import { elements } from './base';
 
-// export const addLevel = (level) =>  `
-//     <div class="word--level">Level n° ${level}</div>
-// `;
-// elements.wordSection.insertAdjacentHTML('beforeend', addLevel(1)); 
-
-
-
 const renderLevel = level => {
     const div = document.createElement("div");
     const newContent = document.createTextNode(`Level n° ${level}`); 
@@ -43,12 +36,3 @@ export default renderLevel;
     // } else {
     //     elements.level.innerHTML = 'Level n°0';
     // }
-
-
-
-
-    
-// export const initLevel = () => {
-//     elements.level.innerHTML = 'Level n°0';
-    
-//     }

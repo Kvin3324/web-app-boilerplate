@@ -32,14 +32,6 @@ export const displayData = async () => {
     const dataArray = await getData('https://api.datamuse.com/words?ml=ringing+in+the+ears');
     dataArray.forEach(element => stateWord.setDataTab(element.word));
     randomWords();
-    
-    // userAnswer();
-
-       // If ok: level + 1 and add 5 words
-
-       // If not ok: alert 'you are a looser' and  go back to level 1 
-
-       // Display level + news words
 }
        
 // DISPLAY RANDOM WORDS 
@@ -80,4 +72,9 @@ export function userAnswer(pickWord) {
     }
 
 
-    
+// Others things to do:
+// - Incremente level is answer is ok (add 5 more words to lvl 2 and 2 words by lvl)
+// - Restart game if answer is not ok
+// - Incremente timer according to the answers
+// - Make the best score
+
