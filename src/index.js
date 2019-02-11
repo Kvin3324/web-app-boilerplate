@@ -7,6 +7,7 @@ import { elements, displayData, userAnswer } from './view/base';
 import { timer } from "./timer";
 import { stateWord } from "./model/Word";
 import { displayRules } from "./rules";
+import renderLevel from "./view/levelView";
 
 // BUTTON WITH RULES
 displayRules();
@@ -15,6 +16,7 @@ displayRules();
 
 elements.startGame.addEventListener('click', () => {
     timer(); // TODO: Started timer
+    renderLevel(1);
     displayData(); // TODO: Fetch random word and Display
 });
 

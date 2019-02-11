@@ -1,8 +1,7 @@
 import {stateWord}  from "../model/Word";
+import {nextLevel}  from "../model/Level";
 import renderWord from "./wordView";
 import renderLevel from "./levelView";
-// import { addLevel } from "./levelView";
-// import addLevel from "./levelView" ;
 // const stateWord = new Word("test");
 
 export const elements = {
@@ -10,7 +9,7 @@ export const elements = {
     wordSection: document.querySelector('.word'),
     answerUser: document.querySelector('.answer--user'),
     answerSection: document.querySelector('.answer'),
-    inputUser: document.querySelector('.input--answer')
+    inputUser: document.querySelector('.input--answer'),
 }
 
 
@@ -39,12 +38,9 @@ export const displayData = async () => {
 function randomWords() {
     // Take random word
     stateWord.setRandom(); // TODO: Create random word
-    console.log(stateWord);
-    
-    // Display word
-    renderLevel(1); // TODO: Display level
     renderWord(stateWord.dataTab[stateWord.randWord]); // TODO: render view's word
-
+    // Display word
+    //   renderLevel(1); // TODO: Display level
 }
 
 // NEXT LEVEL WITH USER'S ANSWER
@@ -57,6 +53,8 @@ export function userAnswer(pickWord) {
         while (elements.wordSection.firstChild) { // TODO: Remove last word
             elements.wordSection.removeChild(elements.wordSection.firstChild);
         }
+        const { trueLevels, theLevel } = newLevel();
+        renderLevel(trueLevels[theLevel]);
         elements.inputUser.value = ''; // TODO: Clear user's input answer and focus him
             // console.log(pickWord);
         } else {
@@ -64,12 +62,28 @@ export function userAnswer(pickWord) {
         }
     }
 
+function newLevel() {
+    const trueLevels = nextLevel.levelTab;
+    const theLevel = nextLevel.getLevel();
+    trueLevels.push(theLevel);
+    for (let i = 0; i < trueLevels.length; i++) {
+        trueLevels[i] = trueLevels[i] + 1;
+    }
+    return { trueLevels, theLevel };
+}
+
     // TODO: Clear array
     function clearArray() {
         for (let i = stateWord.dataTab.length; i >0; i--) {
             stateWord.dataTab.pop();
         }
     }
+
+    // function clearLevel() {
+    //     for (let i =  nextLevel.levelTab.length; i > 0; i--) {
+    //         nextLevel.levelTab.pop();            
+    //     }
+    // }
 
 
 // Others things to do:
