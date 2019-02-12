@@ -53,16 +53,16 @@ export function userAnswer(pickWord) {
         while (elements.wordSection.firstChild) { // TODO: Remove last word
             elements.wordSection.removeChild(elements.wordSection.firstChild);
         }
-        const { trueLevels, theLevel } = newLevel();
-        renderLevel(trueLevels[theLevel]);
+        const { trueLevels, theLevel } = newLevel(); // TODO: Display next level
+        renderLevel(trueLevels[theLevel - 1]);
         elements.inputUser.value = ''; // TODO: Clear user's input answer and focus him
             // console.log(pickWord);
         } else {
-            alert('Wrong word asshole!');
+            alert('You have lost and restart from level 1 !');
         }
     }
 
-function newLevel() {
+export function newLevel() {
     const trueLevels = nextLevel.levelTab;
     const theLevel = nextLevel.getLevel();
     trueLevels.push(theLevel);
@@ -74,7 +74,7 @@ function newLevel() {
 
     // TODO: Clear array
     function clearArray() {
-        for (let i = stateWord.dataTab.length; i >0; i--) {
+        for (let i = stateWord.dataTab.length; i > 0; i--) {
             stateWord.dataTab.pop();
         }
     }

@@ -1,8 +1,8 @@
 import { elements } from './base';
 
 
-const renderLevel = level => {
-    // const undefined = 2;
+
+const renderLevel = (level) => {
     const div = document.createElement("div");
     // const newContent = document.createTextNode(`Level n° ${level}`); 
     div.setAttribute("class", "word--level");
