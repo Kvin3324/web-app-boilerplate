@@ -2,6 +2,7 @@ import {stateWord}  from "../model/Word";
 import {nextLevel}  from "../model/Level";
 import renderWord from "./wordView";
 import renderLevel from "./levelView";
+import {timer} from "../timer";
 // const stateWord = new Word("test");
 
 export const elements = {
@@ -10,6 +11,7 @@ export const elements = {
     answerUser: document.querySelector('.answer--user'),
     answerSection: document.querySelector('.answer'),
     inputUser: document.querySelector('.input--answer'),
+    timerSection: document.querySelector('.display--timer')
 }
 
 
@@ -59,6 +61,9 @@ export function userAnswer(pickWord) {
             // console.log(pickWord);
         } else {
             alert('You have lost and restart from level 1 !');
+            elements.timerSection.remove(); // TODO: Remove timer
+            elements.wordSection.remove(); // TODO: Remove random words
+            elements.inputUser.value = ''; // TODO: cleaning input user's answer
         }
     }
 
@@ -79,11 +84,6 @@ export function newLevel() {
         }
     }
 
-    // function clearLevel() {
-    //     for (let i =  nextLevel.levelTab.length; i > 0; i--) {
-    //         nextLevel.levelTab.pop();            
-    //     }
-    // }
 
 
 // Others things to do:
