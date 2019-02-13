@@ -2,7 +2,8 @@ import {stateWord}  from "../model/Word";
 import {nextLevel}  from "../model/Level";
 import renderWord from "./wordView";
 import renderLevel from "./levelView";
-import {timer} from "../timer";
+// import { myStopFunction } from "../timer";
+
 // const stateWord = new Word("test");
 
 export const elements = {
@@ -11,7 +12,8 @@ export const elements = {
     answerUser: document.querySelector('.answer--user'),
     answerSection: document.querySelector('.answer'),
     inputUser: document.querySelector('.input--answer'),
-    timerSection: document.querySelector('.display--timer')
+    timerSection: document.querySelector('.display--timer'),
+    myTimer: document.getElementById('timer')
 }
 
 
@@ -38,11 +40,9 @@ export const displayData = async () => {
 // DISPLAY RANDOM WORDS 
 
 function randomWords() {
-    // Take random word
     stateWord.setRandom(); // TODO: Create random word
     renderWord(stateWord.dataTab[stateWord.randWord]); // TODO: render view's word
-    // Display word
-    //   renderLevel(1); // TODO: Display level
+
 }
 
 // NEXT LEVEL WITH USER'S ANSWER
@@ -58,12 +58,15 @@ export function userAnswer(pickWord) {
         const { trueLevels, theLevel } = newLevel(); // TODO: Display next level
         renderLevel(trueLevels[theLevel - 1]);
         elements.inputUser.value = ''; // TODO: Clear user's input answer and focus him
-            // console.log(pickWord);
+
+
         } else {
             alert('You have lost and restart from level 1 !');
             elements.timerSection.remove(); // TODO: Remove timer
             elements.wordSection.remove(); // TODO: Remove random words
             elements.inputUser.value = ''; // TODO: cleaning input user's answer
+            // myStopFunction();
+
         }
     }
 
@@ -83,6 +86,30 @@ export function newLevel() {
             stateWord.dataTab.pop();
         }
     }
+
+
+// function shuffle(array) {
+//     var counter = array.length, temp, index;
+
+//     // While there are elements in the array
+//     while (counter--) {
+//         // Pick a random index
+//         index = (Math.random() * counter) | 0;
+
+//         // And swap the last element with it
+//         temp = array[counter];
+//         array[counter] = array[index];
+//         array[index] = temp;
+//     }
+
+//     return array;
+// }
+
+// var arr = [0, 1, 2, 3, 4, 5, 7, 8, 9];
+
+// var randoms = shuffle(arr.slice(0)); // array is cloned so it won't be destroyed
+// randoms.length = 4; // get 4 random elements
+// console.log(randoms);
 
 
 
