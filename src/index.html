@@ -1,79 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Word Game</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="title">
-        <h1>Word Game</h1>
-    </div>
-    <div class="rules">
-        <button id="myBtn" class="btn btn-danger">Rules</button>
-        
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-        
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>Les règles sont les suivantes:</p>
-                <p>Lorsque vous cliquez sur "lets'go" un compteur avec un mot s'affiche en haut de l'écran vous devez écrire dans le
-                    champ en bas de votre écran le mot dans le temps imparti, chaque fois que vous validez un mot votre niveau augmente
-                    de 1.</p>
-                <p>Lorsque vous commencez le jeu vous êtes au niveau 1, à ce niveau il faut valider 5 mots pour pouvoir passer au niveau
-                    suivant avec une vitesse de 2s / mot. Chaque fois que vous passez un niveau le nombre de mots à valider ainsi que la
-                    vitesse de frappe augmente.</p>
-                <p>À noter que pour valider votre mot il faut appuyer sur la touche "Entrée".</p>
-            </div>
-        
-        </div>
-    </div>
-    <div class="container">
-        <div class="start--btn">
-            <button type="button" class="btn btn-primary">Let's go</button>
-        </div>
-        <div class="section display--timer">
-            <div class="word--timer">
-                <h4>Timer</h4>
-                <p id="timer"></p>
-            </div>
-        </div>
-        <div class="section word">
-            <!-- <div class="word--level">Level n° 1</div> -->
-            <!-- <div class="word--display">
-                 <p>Word</p>
-            </div> -->
-        </div>
-        <div class="section answer">
-            <div class="answer--input">
-                <h5>Yours answers:</h5>
-                <input type="text" class="input--answer">
-                <!-- <input type="text" class="input--answer">
-                <input type="text" class="input--answer">
-                <input type="text" class="input--answer"> -->
-                <input type="submit" class="answer--user">  
-            </div>
-        </div>
-        <div class="section best--scores">
-            <h6>Best scores:</h6>
-            <ol>
-                <li>Ludovic => 5 words</li>
-                <li>Lucas => 6 words</li>
-                <li>Oussama => 7 words</li>
-                <li>Florent => 9 words</li>
-                <li>Kévin => 10 words</li>
-            </ol>
-        </div>
-    </div>
+    <div id="root" class="container"></div>
 </body>
-
 </html>
