@@ -40,9 +40,21 @@ export const displayData = async () => {
 // DISPLAY RANDOM WORDS 
 
 function randomWords() {
-    stateWord.setRandom(); // TODO: Create random word
-    renderWord(stateWord.dataTab[stateWord.randWord]); // TODO: render view's word
+     stateWord.setRandom(); // TODO: Create random word
+     renderWord(stateWord.dataTab[stateWord.randWord]); // TODO: render view's word
 
+
+    shuffle(stateWord.dataTab);
+    let randoms = shuffle(stateWord.dataTab.slice(0)); // array is cloned so it won't be destroyed
+    randoms.length = 7; // get 4 random elements
+    console.log(randoms);
+    renderWord(randoms); // TODO: render view's word
+
+
+
+    randoms.length = 6;
+    console.log(randoms);
+    renderWord(randoms);
 }
 
 // NEXT LEVEL WITH USER'S ANSWER
@@ -60,6 +72,7 @@ export function userAnswer(pickWord) {
         elements.inputUser.value = ''; // TODO: Clear user's input answer and focus him
 
 
+        
         } else {
             alert('You have lost and restart from level 1 !');
             elements.timerSection.remove(); // TODO: Remove timer
@@ -88,28 +101,30 @@ export function newLevel() {
     }
 
 
-// function shuffle(array) {
-//     var counter = array.length, temp, index;
+ function shuffle(array) {
+     let counter = array.length, temp, index;
 
-//     // While there are elements in the array
-//     while (counter--) {
-//         // Pick a random index
-//         index = (Math.random() * counter) | 0;
+     // While there are elements in the array
+     while (counter--) {
+         // Pick a random index
+          index = (Math.random() * counter) | 0;
 
-//         // And swap the last element with it
-//         temp = array[counter];
-//         array[counter] = array[index];
-//         array[index] = temp;
-//     }
+         // And swap the last element with it
+         temp = array[counter];
+         array[counter] = array[index];
+         array[index] = temp;
+         
+        }
+        return array;
+    }
+    
+    // var arr = stateWord.dataTab;
+    // var randoms = shuffle(arr.slice(0)); // array is cloned so it won't be destroyed
+    // randoms.length = 4; // get 4 random elements
+    // console.log(randoms);
 
-//     return array;
-// }
 
-// var arr = [0, 1, 2, 3, 4, 5, 7, 8, 9];
 
-// var randoms = shuffle(arr.slice(0)); // array is cloned so it won't be destroyed
-// randoms.length = 4; // get 4 random elements
-// console.log(randoms);
 
 
 
