@@ -8,10 +8,8 @@ import React from "react";
  */
 const Rules = () => {
     return (
-        <div className="col-10">
-            <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
-                Régles du jeu
-        </button>
+        <div>
+            <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Régles du jeu</button>
             <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
