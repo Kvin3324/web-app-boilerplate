@@ -16,23 +16,14 @@ displayRules();
 // STARTED GAME
 
 elements.startGame.addEventListener('click', () => {
-    // timer(); // TODO: Started timer
-    // theTimer.getZeroPad()
-    // theTimer.setMyTimer();
-    // theTimer.setMyStopFunction();
-
-    // bestTimer.newTimer();    
-    myTime.startTimer(5, elements.myTimer);
-
-
-    renderLevel(1);
+    myTime.startTimer(5, elements.myTimer); // TODO: Timer started
+    renderLevel(1); // TODO: Display level 1
     displayData(); // TODO: Fetch random word and Display
 });
 
 elements.answerUser.addEventListener('click', () => {
     displayData();
-    userAnswer(stateWord.dataTab[stateWord.randWord]);
-
+    userAnswer(stateWord.dataTab[stateWord.randWord]); // TODO: Compare user's answer with random word
 })
 
 document.addEventListener('keypress', function (event) {

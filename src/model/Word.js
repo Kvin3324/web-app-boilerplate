@@ -1,8 +1,4 @@
-// import axios from 'axios';
-// import { addLevel } from "./view/levelView";
-// import { displayData } from './view/base';
-
-  class Word {
+class Word {
     constructor(word) {
         this.word = word;
         this.dataTab = [];
